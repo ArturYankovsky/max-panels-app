@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Каталог панелей</title>
+
+  <!-- MAX Bridge -->
+  <script src="https://dev.max.ru/static/max-web-app.js"></script>
+
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background:#f6f6f6; }
+    header { padding: 14px 16px; background: white; position: sticky; top: 0; border-bottom: 1px solid #ddd; }
+    h1 { font-size: 18px; margin: 0; }
+    .wrap { padding: 12px; }
+    .card { background: white; border:1px solid #e6e6e6; border-radius: 12px; padding: 12px; margin-bottom: 12px; }
+    .title { font-weight: 700; margin: 0 0 6px; }
+    .short { margin: 0 0 10px; color:#444; }
+    .btn { display:inline-block; padding:10px 12px; border-radius:10px; border:1px solid #ddd; background:#fff; cursor:pointer; text-decoration:none; }
+    .btn-primary { background:#111; color:#fff; border-color:#111; }
+    .row { display:flex; gap:10px; flex-wrap: wrap; }
+    img { max-width: 100%; border-radius: 10px; border:1px solid #eee; }
+    .tabs { display:flex; gap:8px; flex-wrap: wrap; margin: 10px 0; }
+    .tab { padding:8px 10px; border-radius:10px; border:1px solid #ddd; background:#fff; cursor:pointer; }
+    .tab.active { background:#111; color:#fff; border-color:#111; }
+    .hidden { display:none; }
+    ul { margin: 8px 0 0 18px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="pageTitle">Каталог панелей</h1>
+  </header>
+
+  <div class="wrap">
+    <div id="catalog"></div>
+
+    <div id="panelView" class="hidden">
+      <div class="card">
+        <div class="row" style="justify-content:space-between; align-items:center;">
+          <div>
+            <div class="title" id="panelTitle"></div>
+            <div class="short" id="panelShort"></div>
+          </div>
+          <button class="btn" id="backBtn">← Назад</button>
+        </div>
+
+        <div class="tabs">
+          <button class="tab active" data-tab="photos">Фото</button>
+          <button class="tab" data-tab="docs">Документы</button>
+          <button class="tab" data-tab="method">Методика</button>
+          <button class="tab" data-tab="video">Видео</button>
+        </div>
+
+        <div id="tab-photos"></div>
+        <div id="tab-docs" class="hidden"></div>
+        <div id="tab-method" class="hidden"></div>
+        <div id="tab-video" class="hidden"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
