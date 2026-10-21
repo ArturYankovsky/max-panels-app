@@ -2,63 +2,30 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Родительский навигатор</title>
-
-  <!-- MAX Bridge -->
-  <script src="https://dev.max.ru/static/max-web-app.js"></script>
-
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; background:#f6f6f6; }
-    header { padding: 14px 16px; background: white; position: sticky; top: 0; border-bottom: 1px solid #ddd; }
-    h1 { font-size: 18px; margin: 0; }
-    .wrap { padding: 12px; }
-    .card { background: white; border:1px solid #e6e6e6; border-radius: 12px; padding: 12px; margin-bottom: 12px; }
-    .title { font-weight: 700; margin: 0 0 6px; }
-    .short { margin: 0 0 10px; color:#444; line-height: 1.35; }
-    .btn { display:inline-block; padding:10px 12px; border-radius:10px; border:1px solid #ddd; background:#fff; cursor:pointer; text-decoration:none; }
-    .btn-primary { background:#111; color:#fff; border-color:#111; }
-    .row { display:flex; gap:10px; flex-wrap: wrap; }
-    img { max-width: 100%; border-radius: 10px; border:1px solid #eee; }
-    .tabs { display:flex; gap:8px; flex-wrap: wrap; margin: 10px 0; }
-    .tab, .tab2 { padding:8px 10px; border-radius:10px; border:1px solid #ddd; background:#fff; cursor:pointer; }
-    .tab.active, .tab2.active { background:#111; color:#fff; border-color:#111; }
-    .hidden { display:none; }
-    ul { margin: 8px 0 0 18px; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#183e35" />
+  <meta name="description" content="Родительский навигатор: понятные шаги для семейных ситуаций, короткие игры и путеводитель по просвещению родителей." />
+  <title>Родительский навигатор · Рядом с ребёнком</title>
+  <link rel="stylesheet" href="styles.css?v=20261021" />
+  <script src="https://st.max.ru/js/max-web-app.js" async></script>
+  <script src="app.js?v=20261021" defer></script>
 </head>
 <body>
-  <header>
-    <h1 id="pageTitle">Программа просвещения родителей</h1>
-  </header>
-
-  <div class="wrap">
-    <!-- Главный экран (список разделов) -->
-    <div id="catalog"></div>
-
-    <!-- Экран раздела -->
-    <div id="panelView" class="hidden">
-      <div class="card">
-        <div class="row" style="justify-content:space-between; align-items:center;">
-          <div>
-            <div class="title" id="panelTitle"></div>
-            <div class="short" id="panelShort"></div>
-          </div>
-          <button class="btn" id="backBtn">← Назад</button>
-        </div>
-
-        <!-- Вкладки внутри раздела -->
-        <div class="tabs">
-          <button class="tab2 active" data-tab="content">Содержание</button>
-          <button class="tab2" data-tab="pdf">PDF</button>
-        </div>
-
-        <div id="tab-content"></div>
-        <div id="tab-pdf" class="hidden"></div>
+  <a class="skip-link" href="#main">Перейти к содержанию</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#home" aria-label="Родительский навигатор — главная"><span class="brand-mark" aria-hidden="true"><i></i><i></i></span><span>Родительский<span class="brand-second">навигатор</span></span></a>
+      <div class="mode-switch" role="group" aria-label="Для кого материалы">
+        <button type="button" data-mode="parent" aria-pressed="true">Родителям</button>
+        <button type="button" data-mode="teacher" aria-pressed="false">Педагогам</button>
       </div>
     </div>
-  </div>
-
-  <script src="app.js"></script>
+    <nav class="main-nav" aria-label="Основные разделы">
+      <a href="#home" data-nav="home">Главная</a><a href="#situations" data-nav="situations">Ситуации</a><a href="#games" data-nav="games">Игры</a><a href="#guide" data-nav="guide">Путеводитель</a>
+    </nav>
+  </header>
+  <main id="main" class="page" tabindex="-1"><div id="app" aria-busy="true"><div class="loading-state" role="status">Готовим материалы…</div></div></main>
+  <footer class="site-footer"><span class="footer-label">Маленькие шаги. Тёплый контакт.</span><p>Информационные материалы для взрослых. Не диагностика и не замена индивидуальной консультации специалиста.</p><a href="#guide">О материалах и первоисточнике</a></footer>
+  <noscript><div class="noscript">Для карточек включите JavaScript. <a href="https://irzar.ru/wp-content/uploads/2024/12/programma-prosveshheniya-roditelej.pdf">Программу можно открыть в PDF</a> без него.</div></noscript>
 </body>
 </html>
